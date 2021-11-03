@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'
 import './index.css';
+import {GithubProvider} from './Context/context'
 
 
-ReactDOM.render(<App/> , document.getElementById('root'))
+ReactDOM.render(
+  <GithubProvider>
+    <App/>
+  </GithubProvider>
+  , document.getElementById('root'))
