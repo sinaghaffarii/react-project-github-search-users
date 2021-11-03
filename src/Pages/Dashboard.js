@@ -1,9 +1,14 @@
 import React from 'react'
+import {Navbar, Search, Info, User, Repos} from '../Components'
 
 const Dashboard = () => {
   return (
     <div>
-      Dashboard Component
+      <Navbar></Navbar>
+      <Search/>
+      <Info/>
+      <User/>
+      <Repos/>
     </div>
   )
 }
