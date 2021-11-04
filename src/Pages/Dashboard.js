@@ -4,8 +4,8 @@ import {Navbar, Search, Info, User, Repos} from '../Components'
 const Dashboard = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <Search/>
+      {/* <Navbar></Navbar> */}
+      {/* <Search/> */}
       <Info/>
       <User/>
       <Repos/>
