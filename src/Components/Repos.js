@@ -24,7 +24,12 @@ const Repos = () => {
     }
     return total
   },{})
+
+  //  --------- For Languages Chart
+
   const mostUsed = Object.values(languages).sort((a,b) => b.value - a.valuev).slice(0 , 5)
+
+  //  ---------- For Most Popular Chart
 
   const mostPopular = Object.values(languages).sort((a,b) => {
     return b.stars - a.stars 
@@ -32,49 +37,33 @@ const Repos = () => {
     return {...item, value: item.stars}
   }).slice(0 , 5)
 
-  const chartData = [
-    {
-      "label": "Venezuela",
-      "value": "290"
-    },
-    {
-      "label": "Saudi",
-      "value": "260"
-    },
-    {
-      "label": "Canada",
-      "value": "180"
-    },
-    {
-      "label": "Iran",
-      "value": "140"
-    },
-    {
-      "label": "Russia",
-      "value": "115"
-    },
-    {
-      "label": "UAE",
-      "value": "100"
-    },
-    {
-      "label": "US",
-      "value": "30"
-    },
-    {
-      "label": "China",
-      "value": "30"
-    }
-  ]
+
+  //  ---------- For Stars and Forks Chart
+
+  let {stars , forks} = repos.reduce((total, item) => {
+    const {stargazers_count, name, forks} = item;
+
+    total.stars[stargazers_count] = {label: name, value: stargazers_count}
+    total.forks[forks] = {label: name, value: forks}
+
+    return total
+  } , {
+    stars: {},
+    forks: {}
+  })
+
+
+  stars = Object.values(stars).slice(-5).reverse()
+  forks = Object.values(forks).slice(-5).reverse()
 
 
   return (
     <section className="section">
       <Wrapper className="section-center">
         <Pie data={mostUsed} />
-        <Column data={chartData}  />
+        <Column data={stars}  />
         <Doughnut data={mostPopular} />
-        <Bar data={mostUsed}  />
+        <Bar data={forks}  />
       </Wrapper>
     </section>
   )

@@ -171,12 +171,12 @@ p {
     width: 95vw;
   }
 }
-.loading-img {
-  width: 20rem;
-  height: 20rem;
-  display: block;
-  margin: 0 auto;
-  margin-top: 10rem;
+.spinnerStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 50vh;
 }
 main {
   padding-bottom: 2rem;
