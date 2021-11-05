@@ -1,44 +1,46 @@
-import React, {useState} from 'react'
-import styled from 'styled-components'
-import { MdSearch } from 'react-icons/md';
-import { GithubContext } from '../Context/context';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { MdSearch } from "react-icons/md";
+import { GithubContext } from "../Context/context";
 
 const Search = () => {
+  const { requests, error, searchGithubUser } = React.useContext(GithubContext);
 
-  const {requests, error, searchGithubUser} = React.useContext(GithubContext)
+  const [user, setUser] = useState("");
 
-const [user, setUser] = useState('')
-
-const submitHandler = (e) => {
-  e.preventDefault()
-  if(user) {
-    searchGithubUser(user)
-    setUser('')
-  }
-}
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (user) {
+      searchGithubUser(user);
+      setUser("");
+    }
+  };
 
   return (
     <section className="section">
       <Wrapper className="section-center">
-        {error.show && 
+        {error.show && (
           <ErrorWrapper>
             <p>{error.msg}</p>
           </ErrorWrapper>
-        }
-          <form onSubmit={submitHandler}>
-           <div className="form-control">
-           <MdSearch/>
-            <input type="text" placeholder="Enter Github User"  value={user} onChange={(e) => setUser(e.target.value)} />
-            {requests > 0 &&
-            <button type="submit">search</button> 
-            }
-           </div>
-          </form>
-          <h3>requests : {requests} / 60</h3>
+        )}
+        <form onSubmit={submitHandler}>
+          <div className="form-control">
+            <MdSearch />
+            <input
+              type="text"
+              placeholder="Enter Github User"
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+            />
+            {requests > 0 && <button type="submit">search</button>}
+          </div>
+        </form>
+        <h3>requests : {requests} / 60</h3>
       </Wrapper>
     </section>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   position: relative;
@@ -121,4 +123,4 @@ const ErrorWrapper = styled.article`
   }
 `;
 
-export default Search
+export default Search;

@@ -1,29 +1,27 @@
-import React from 'react'
-import Fingerprint from '../Images/Fingerprint.svg'
-import styled from 'styled-components'
+import React from "react";
+import Fingerprint from "../Images/Fingerprint.svg";
+import styled from "styled-components";
 
 const Login = () => {
-  return ( 
-    <Wrapper >
+  return (
+    <Wrapper>
       <div className="container">
-      <img src = {Fingerprint} alt = "Finger Print" / >
+        <img src={Fingerprint} alt="Finger Print" />
         <h1>github user</h1>
-    <button className="btn">
-      login / sign in
-    </button>
+        <button className="btn">login / sign in</button>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-const Wrapper = styled.section `
-min-height: 100vh;
-display:grid;
-place-items: center;
-.container {
-  width: 90vw;
-  max-width: 600px;
-  text-align: center;
+const Wrapper = styled.section`
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  .container {
+    width: 90vw;
+    max-width: 600px;
+    text-align: center;
   }
   img {
     height: 400px;
@@ -32,6 +30,6 @@ place-items: center;
   h1 {
     margin-bottom: 1.5rem;
   }
-`
+`;
 
 export default Login;

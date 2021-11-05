@@ -1,31 +1,29 @@
-import React from  'react'
-import styled from 'styled-components';
-import {GithubContext} from '../Context/context'
+import React from "react";
+import styled from "styled-components";
+import { GithubContext } from "../Context/context";
 
-const Followers  = () => {
-
-  const {followers} = React.useContext(GithubContext)
-
+const Followers = () => {
+  const { followers } = React.useContext(GithubContext);
 
   return (
     <Wrapper>
       <div className="followers">
         {followers.map((follower, index) => {
-          const {avatar_url: img, html_url, login} = follower
+          const { avatar_url: img, html_url, login } = follower;
           return (
             <article key={index}>
-              <img src={img} alt={login}  />
+              <img src={img} alt={login} />
               <div>
                 <h4>{login}</h4>
                 <a href={html_url}>{html_url}</a>>
               </div>
             </article>
-          )
+          );
         })}
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.article`
   background: var(--clr-white);
@@ -34,7 +32,7 @@ const Wrapper = styled.article`
   border-bottom-right-radius: var(--radius);
   position: relative;
   &::before {
-    content: ' followers';
+    content: " followers";
     position: absolute;
     top: 0;
     left: 0;
