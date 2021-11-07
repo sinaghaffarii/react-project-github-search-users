@@ -2,7 +2,6 @@ import React from "react";
 import Fingerprint from "../Images/Fingerprint.svg";
 import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
 
 const Login = () => {
   const { loginWithRedirect } = useAuth0();
